@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkanychan=self.webpackChunkanychan||[]).push([[7393],{96319:a=>{function e(a){a.languages.yang={comment:/\/\*[\s\S]*?\*\/|\/\/.*/,string:{pattern:/"(?:[^\\"]|\\.)*"|'[^']*'/,greedy:!0},keyword:{pattern:/(^|[{};\r\n][ \t]*)[a-z_][\w.-]*/i,lookbehind:!0},namespace:{pattern:/(\s)[a-z_][\w.-]*(?=:)/i,lookbehind:!0},boolean:/\b(?:false|true)\b/,operator:/\+/,punctuation:/[{};:]/}}a.exports=e,e.displayName="yang",e.aliases=[]}}]);
+//# sourceMappingURL=react-syntax-highlighter_languages_refractor_yang.6f0300be06fed8a656b1.js.map
