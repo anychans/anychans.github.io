@@ -9,10 +9,6 @@
 		<!-- Apply default configuration -->
 		<script>
 			var DEFAULT_CONFIG = {
-	"googleAnalyticsIdOldDemoSite": "UA-133449060-1",
-	"googleAnalyticsId": "G-G8Q91MRFSW",
-	"sentryUrlOldDemoSite": "https://1d8af9b018464f618e9237ccbc26e968@sentry.io/1488131",
-	"sentryUrl": "https://815d35d36ae249c1a5b04cbdfdcdcec1@o273513.ingest.sentry.io/4504619677712384",
 	"proxyUrl": "https://anychan-proxy.vercel.app?url={urlEncoded}",
 	"youtubeApiKey": "AIzaSyCvZRvuuHFVteEnl4E-TpJTfNUZeL3owO8",
 	"announcementPollInterval": 86400000,
@@ -22,7 +18,11 @@
 	"generatedQuoteMaxLength": 120,
 	"generatedQuoteMinFitFactor": 0.5,
 	"generatedQuoteMaxFitFactor": 1.4,
-	"dataPollingRate": "slow"
+	"dataPollingRate": "slow",
+	"googleAnalyticsIdOldDemoSite": "UA-133449060-1",
+	"googleAnalyticsId": "G-G8Q91MRFSW",
+	"sentryUrlOldDemoSite": "https://1d8af9b018464f618e9237ccbc26e968@sentry.io/1488131",
+	"sentryUrl": "https://815d35d36ae249c1a5b04cbdfdcdcec1@o273513.ingest.sentry.io/4504619677712384"
 }
 			CONFIG = Object.assign({}, DEFAULT_CONFIG, CONFIG)
 			var BASE_PATH = CONFIG.path || ''
@@ -37,13 +37,57 @@
 			}
 		</script>
 		
+		<script>
+			(function () {
+				// <script/> tag attributes.
+				var scriptTagAttributes = {"defer":true,"src":"/assets/main.ee3a1eb9fa3af56bc118.js"}
+
+				// Style <link/> tag attributes.
+				// There seems to be no style `<link/>` tag in development.
+				// There is a style `<link/>` tag in production.
+				var styleLinkTagAttributes = {"href":"/assets/main.b6165d6156a2ab34f49a.css","rel":"stylesheet"}
+
+				// Add `<script/>` tag.
+				scriptTagAttributes.src = BASE_PATH + scriptTagAttributes.src
+				var script = document.createElement('script')
+				for (var attribute in scriptTagAttributes) {
+					script.setAttribute(attribute, scriptTagAttributes[attribute])
+				}
+				document.head.appendChild(script)
+
+				// Add style `<link rel="stylesheet"/>` tag.
+				if (styleLinkTagAttributes) {
+					styleLinkTagAttributes.href = BASE_PATH + styleLinkTagAttributes.href
+					var styleLink = document.createElement('link')
+					for (var attribute in styleLinkTagAttributes) {
+						styleLink.setAttribute(attribute, styleLinkTagAttributes[attribute])
+					}
+					document.head.appendChild(styleLink)
+				}
+			})()
+		</script>
+		
 		<!-- Set `__webpack_public_path__` -->
 		<script>
 			// `__webpack_public_path__` is configured dynamically at runtime.
 			// https://webpack.js.org/guides/public-path/#on-the-fly
 			__webpack_public_path__ = BASE_PATH + '/'
 		</script>
+		
 		<!-- Google Analytics -->
+		<script>
+			if (CONFIG.googleAnalyticsId) {
+				var script = document.createElement('script')
+				script.setAttribute('async', '')
+				script.src = 'https://www.googletagmanager.com/gtag/js?id=' + CONFIG.googleAnalyticsId
+				document.head.appendChild(script)
+				// Standard `gtag` initialization code.
+				// https://developers.google.com/analytics/devguides/collection/gtagjs/
+				window.dataLayer = window.dataLayer || [];
+				function gtag(){dataLayer.push(arguments);}
+				gtag('js', new Date());
+			}
+		</script>
 		
 		<script>
 			var DATA_SOURCE_ICON_URLS = []
@@ -79,7 +123,7 @@
 				// document.querySelector('link[rel="shortcut icon"]').setAttribute('href', ICON_URL)
 			})()
 		</script>
-	<script defer src="/assets/main.ee3a1eb9fa3af56bc118.js"></script><link href="/assets/main.b6165d6156a2ab34f49a.css" rel="stylesheet"></head>
+	</head>
 	<body>
 	</body>
 </html>
