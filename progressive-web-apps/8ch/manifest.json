@@ -1,0 +1,11 @@
+{
+  "name": "8kun",
+  "start_url": "/8ch",
+  "icons": [
+    {
+      "src": "./app-icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

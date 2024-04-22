@@ -1,0 +1,11 @@
+{
+  "name": "4chan",
+  "start_url": "/4chan",
+  "icons": [
+    {
+      "src": "./app-icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
